@@ -4,6 +4,10 @@ Rails.application.routes.draw do
 
   root to: "home#index"
 
+  namespace :api do
+    resources :guns, only: [:index]
+  end
+
   resources :users, only: [:show] do
     resources :targets
   end

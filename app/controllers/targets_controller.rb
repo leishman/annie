@@ -10,8 +10,11 @@ class TargetsController < ApplicationController
 
 
   def create
-    target = current_user.targets.create!(sanitized_params)
-    redirect_to user_target_path(current_user, target)
+    @gun = Gun.find_by(name: params[:target][:gun_id])
+    @target = current_user.targets.build(sanitized_params)
+    @target.gun = @gun
+    @target.save!
+    redirect_to user_target_path(current_user, @target)
   end
 
   private

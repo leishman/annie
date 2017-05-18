@@ -10,7 +10,7 @@ class CreateTarget < ActiveRecord::Migration[5.1]
 
     create_table :guns do |t|
       t.string  :name
-      t.integer :type
+      t.integer :gun_type
     end
 
     create_table :ranges do |t|

@@ -6,12 +6,40 @@
   <br/>
   <br/>
   <label>Range</label>
-  <%= f.text_field :range_id %>
+  <%= f.text_field :range_name, class: "js-rangeField" %>
   <br/>
   <label>Gun</label>
-  <%= f.text_field :gun_id %>
+  <%= f.text_field :gun_name, class: "js-gunField" %>
   <br/>
 
 
   <%= f.submit %>
 <% end %>
+
+<script type="text/javascript">
+  $( function() {
+    // function log( message ) {
+      // $( ".js-rangeField" ).text( message ).prependTo( "#log" );
+      // $( "#log" ).scrollTop( 0 );
+    // }
+
+    $(".js-gunField").autocomplete({
+      source: function(request, response) {
+        $.ajax( {
+          url: "/api/guns",
+          dataType: "json",
+          data: {
+            term: request.term
+          },
+          success: function( data ) {
+            response(data['guns']);
+          }
+        });
+      },
+      minLength: 2,
+      select: function( event, ui ) {
+        console.log( "Selected: " + ui.item.value + " aka " + ui.item.id );
+      }
+    });
+  } );
+</script>

@@ -14,7 +14,7 @@ ActiveRecord::Schema.define(version: 20170509180751) do
 
   create_table "guns", force: :cascade do |t|
     t.string "name"
-    t.integer "type"
+    t.integer "gun_type"
   end
 
   create_table "ranges", force: :cascade do |t|
