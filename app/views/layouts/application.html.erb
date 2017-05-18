@@ -4,11 +4,24 @@
     <title>Annie</title>
     <%= csrf_meta_tags %>
 
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.6/css/bootstrap.min.css" integrity="sha384-rwoIResjU2yc3z8GV/NPeZWAv56rSmLldC3R/AZzGRnGxQQKnKkoFVhFQhNUwEyJ" crossorigin="anonymous">
+
     <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
+    <link href="https://fonts.googleapis.com/css?family=Smokum" rel="stylesheet">
   </head>
 
   <body>
-    <%= yield %>
+    <div class="container">
+      <%= yield %>
+      <nav class="navbar fixed-bottom navbar-light bg-faded annie-navbar">
+        <a class="" href="#">A</a>
+        <a class="" href="#">B</a>
+        <%= link_to 'T', new_user_target_path(current_user) %>
+        <a class="" href="#">D</a>
+        <a class="" href="#">E</a>
+      </nav>
+    </div>
   </body>
 </html>

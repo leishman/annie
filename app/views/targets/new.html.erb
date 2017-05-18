@@ -1,0 +1,7 @@
+<h1>Upload Target</h1>
+
+<%= form_for [current_user, @target], html: { multipart: true } do |f| %>
+  <%= f.file_field :image %>
+
+  <%= f.submit %>
+<% end %>
