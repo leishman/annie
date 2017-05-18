@@ -15,13 +15,15 @@
   <body>
     <div class="container">
       <%= yield %>
-      <nav class="navbar fixed-bottom navbar-light bg-faded annie-navbar">
-        <a class="" href="#">A</a>
-        <a class="" href="#">B</a>
-        <%= link_to 'T', new_user_target_path(current_user) %>
-        <a class="" href="#">D</a>
-        <a class="" href="#">E</a>
-      </nav>
+      <% if user_signed_in? %>
+        <nav class="navbar fixed-bottom navbar-light bg-faded annie-navbar">
+          <a class="" href="#">A</a>
+          <a class="" href="#">B</a>
+            <%= link_to 'T', new_user_target_path(current_user) %>
+          <a class="" href="#">D</a>
+          <a class="" href="#">E</a>
+        </nav>
+      <% end %>
     </div>
   </body>
 </html>
