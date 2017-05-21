@@ -12,22 +12,24 @@
 
 ActiveRecord::Schema.define(version: 20170509180751) do
 
+  create_table "gun_ranges", force: :cascade do |t|
+    t.string "name"
+    t.index ["name"], name: "index_gun_ranges_on_name", unique: true
+  end
+
   create_table "guns", force: :cascade do |t|
     t.string "name"
     t.integer "gun_type"
-  end
-
-  create_table "ranges", force: :cascade do |t|
-    t.string "name"
+    t.index ["name"], name: "index_guns_on_name", unique: true
   end
 
   create_table "targets", force: :cascade do |t|
     t.integer "user_id"
     t.string "image"
     t.integer "gun_id"
-    t.integer "range_id"
+    t.integer "gun_range_id"
     t.index ["gun_id"], name: "index_targets_on_gun_id"
-    t.index ["range_id"], name: "index_targets_on_range_id"
+    t.index ["gun_range_id"], name: "index_targets_on_gun_range_id"
     t.index ["user_id"], name: "index_targets_on_user_id"
   end
 

@@ -8,6 +8,8 @@ Rails.application.routes.draw do
     resources :guns, only: [:index]
   end
 
+  get '/feed', to: 'feed#show', as: 'feed'
+  get '/more', to: 'more#show', as: 'more'
   resources :users, only: [:show] do
     resources :targets
   end

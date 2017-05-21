@@ -25,3 +25,17 @@ guns = [
 guns.each do |gun|
   Gun.create!(name: gun, gun_type: "handgun")
 end
+
+
+ranges = [
+  "abc range"
+]
+
+ranges.each do |range|
+  GunRange.create!(name: range)
+end
+
+
+User.create!(email: 'leishman3@gmail.com', password: 'simple', password_confirmation: 'simple', name: 'Alexander')
+
+

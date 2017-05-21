@@ -1,16 +1,20 @@
 <h1>Upload Target</h1>
-
+<br/>
+<br/>
 <%= form_for [current_user, @target], html: { multipart: true } do |f| %>
-  <%= f.file_field :image %>
+  <div class="annie-target-form">
+    <%= image_tag 'upload_logo.png', width: '50px', class: 'js-uploadIcon' %>
+    <br/>
+    <br/>
+      <%= f.file_field :image, style: 'display: none', class: 'js-uploadField' %>
 
-  <br/>
-  <br/>
-  <label>Range</label>
-  <%= f.text_field :range_name, class: "js-rangeField" %>
-  <br/>
-  <label>Gun</label>
-  <%= f.text_field :gun_name, class: "js-gunField" %>
-  <br/>
+    <div class="form-group">
+      <%= f.text_field :gun_range_id, placeholder: 'select location', class: "form-control js-rangeField" %>
+    </div>
+
+    <%= f.text_field :gun_id, placeholder: 'select gun', class: "form-control js-gunField" %>
+    <br/>
+  </div>
 
 
   <%= f.submit %>
@@ -22,6 +26,10 @@
       // $( ".js-rangeField" ).text( message ).prependTo( "#log" );
       // $( "#log" ).scrollTop( 0 );
     // }
+    //
+    $('.js-uploadIcon').click(function(e) {
+      $('.js-uploadField').click();
+    })
 
     $(".js-gunField").autocomplete({
       source: function(request, response) {

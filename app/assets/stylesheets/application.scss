@@ -71,6 +71,49 @@ input {
   border-top: 1px solid black;
 }
 
+.annie-navbar .navbar-link {
+  width: 20%;
+  max-width: 20%;
+}
+
+.annie-navbar .navbar-link img {
+  width: 50%;
+}
+
 .annie-user-profile-image {
   border-radius: 5px;
+}
+
+.annie-nf-item {
+  // height: 400px;
+  max-height: 400px;
+  overflow: hidden;
+  width: 100%;
+  border: 1px solid gray;
+  border-top: none;
+  border-radius: 0 0 5px 5px;
+  margin: 20px 0;
+}
+
+.annie-nf-lower {
+  padding: 5px;
+  margin: 5px;
+}
+
+.annie-nf-lower-content {
+  padding-left: 10px;
+}
+
+.annie-nf-lower-content p {
+  margin: 0;
+  padding: 0;
+}
+
+.annie-nf-user-name {
+  color: #386150;
+  padding-bottom: 5px;
+}
+
+.annie-target-form {
+  text-align: center;
 }

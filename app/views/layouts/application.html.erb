@@ -17,11 +17,11 @@
       <%= yield %>
       <% if user_signed_in? %>
         <nav class="navbar fixed-bottom navbar-light bg-faded annie-navbar">
-          <a class="" href="#">A</a>
-          <a class="" href="#">B</a>
-            <%= link_to 'T', new_user_target_path(current_user) %>
-          <a class="" href="#">D</a>
-          <a class="" href="#">E</a>
+          <a class="navbar-link" href="/feed"><%= image_tag 'feed_logo.png', class: "img-fluid" %></a>
+          <a class="navbar-link" href="#"><%= image_tag 'globe_logo.png' %></a>
+          <%= link_to image_tag('target_logo.png'), new_user_target_path(current_user), class: "navbar-link" %>
+          <a class="navbar-link" href="#"><%= image_tag('user_profile_icon.png') %></a>
+          <a class="navbar-link" href="/more"><%= image_tag('more_logo.png') %></a>
         </nav>
       <% end %>
     </div>
