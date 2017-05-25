@@ -6,13 +6,13 @@
     <%= image_tag 'upload_logo.png', width: '50px', class: 'js-uploadIcon' %>
     <br/>
     <br/>
-      <%= f.file_field :image, style: 'display: none', class: 'js-uploadField' %>
+      <%= f.file_field :image, style: 'display: none', class: 'js-uploadField', required: true %>
 
     <div class="form-group">
-      <%= f.text_field :gun_range_id, placeholder: 'select location', class: "form-control js-rangeField" %>
+      <%= f.text_field :gun_range_id, placeholder: 'select location', class: "form-control js-gunRangeField", required: true %>
     </div>
 
-    <%= f.text_field :gun_id, placeholder: 'select gun', class: "form-control js-gunField" %>
+    <%= f.text_field :gun_id, placeholder: 'select gun', class: "form-control js-gunField", required: true %>
     <br/>
   </div>
 
@@ -41,6 +41,25 @@
           },
           success: function( data ) {
             response(data['guns']);
+          }
+        });
+      },
+      minLength: 2,
+      select: function( event, ui ) {
+        console.log( "Selected: " + ui.item.value + " aka " + ui.item.id );
+      }
+    });
+
+    $(".js-gunRangeField").autocomplete({
+      source: function(request, response) {
+        $.ajax( {
+          url: "/api/gun_ranges",
+          dataType: "json",
+          data: {
+            term: request.term
+          },
+          success: function( data ) {
+            response(data['gun_ranges']);
           }
         });
       },

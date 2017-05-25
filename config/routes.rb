@@ -6,6 +6,7 @@ Rails.application.routes.draw do
 
   namespace :api do
     resources :guns, only: [:index]
+    resources :gun_ranges, only: [:index]
   end
 
   get '/feed', to: 'feed#show', as: 'feed'

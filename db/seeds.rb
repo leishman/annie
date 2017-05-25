@@ -28,7 +28,8 @@ end
 
 
 ranges = [
-  "abc range"
+  "abc range",
+  "def range"
 ]
 
 ranges.each do |range|
