@@ -3,5 +3,6 @@ class UsersController < ApplicationController
 
   def show
     @user = User.find(params[:id])
+    @gun_ranges = GunRange.first(3)
   end
 end

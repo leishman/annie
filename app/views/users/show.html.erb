@@ -2,4 +2,11 @@
   <h1><%= @user.name %></h1>
 
   <%= gravatar_image_tag(@user.email, class: "annie-user-profile-image") %>
+
+  <h2>My Ranges</h2>
+  <div class="annie-gun-ranges">
+    <% @gun_ranges.each do |gun_range| %>
+      <%= image_tag gun_range.image_path, class: "img-fluid" %>
+    <% end %>
+  </div>
 </div>

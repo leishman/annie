@@ -14,6 +14,8 @@ ActiveRecord::Schema.define(version: 20170509180751) do
 
   create_table "gun_ranges", force: :cascade do |t|
     t.string "name"
+    t.float "latitude"
+    t.float "longitude"
     t.index ["name"], name: "index_gun_ranges_on_name", unique: true
   end
 

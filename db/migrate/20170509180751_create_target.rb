@@ -15,6 +15,8 @@ class CreateTarget < ActiveRecord::Migration[5.1]
 
     create_table :gun_ranges do |t|
       t.string :name
+      t.float  :latitude
+      t.float  :longitude
     end
     add_index :gun_ranges, :name, unique: true
 

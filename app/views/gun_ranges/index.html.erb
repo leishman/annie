@@ -1,0 +1,8 @@
+<% @gun_ranges.each do |gun_range| %>
+  <div>
+    <%= image_tag gun_range.image_path, class: "img-fluid" %>
+    <p><%= gun_range.name %></p>
+  </div>
+<% end %>
+<br>
+<br>
