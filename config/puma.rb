@@ -17,8 +17,11 @@ port        ENV.fetch("PORT") { 3000 }
 #
 environment ENV.fetch("RAILS_ENV") { "development" }
 
+preload_app!
+
 bind "unix://#{shared_dir}/tmp/sockets/puma.sock"
 pidfile "#{shared_dir}/tmp/pids/puma.pid"
+
 
 # Specifies the number of `workers` to boot in clustered mode.
 # Workers are forked webserver processes. If using threads and workers together
