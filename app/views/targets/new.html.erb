@@ -1,24 +1,28 @@
-<h1>Upload Target</h1>
-<br/>
-<br/>
-<%= form_for [current_user, @target], html: { multipart: true } do |f| %>
-  <div class="annie-target-form">
-    <%= image_tag 'upload_logo.png', width: '50px', class: 'js-uploadIcon' %>
-    <br/>
-    <br/>
-      <%= f.file_field :image, style: 'display: none', class: 'js-uploadField', required: true %>
+<div class="js-hidethis">
+  <h1>Upload Target</h1>
+  <br/>
+  <br/>
+  <%= form_for [current_user, @target], html: { multipart: true } do |f| %>
+    <div class="annie-target-form">
+      <%= image_tag 'upload_logo.png', width: '50px', class: 'js-uploadIcon' %>
+      <div class="annie-target-check">✔</div>
 
-    <div class="form-group">
-      <%= f.text_field :gun_range_id, placeholder: 'select location', class: "form-control js-gunRangeField", required: true %>
+      <br/>
+      <br/>
+        <%= f.file_field :image, style: 'display: none', class: 'js-uploadField', required: true %>
+
+      <div class="form-group">
+        <%= f.text_field :gun_range_id, placeholder: 'select location', class: "form-control js-gunRangeField", required: true %>
+      </div>
+
+      <%= f.text_field :gun_id, placeholder: 'select gun', class: "form-control js-gunField", required: true %>
+      <br/>
     </div>
 
-    <%= f.text_field :gun_id, placeholder: 'select gun', class: "form-control js-gunField", required: true %>
-    <br/>
-  </div>
 
-
-  <%= f.submit %>
-<% end %>
+    <%= f.submit 'Save Target', class: 'btn btn-primary js-submit' %>
+  <% end %>
+</div>
 
 <script type="text/javascript">
   $( function() {
@@ -27,9 +31,31 @@
       // $( "#log" ).scrollTop( 0 );
     // }
     //
+
+    $('.js-submit').click(function(e) {
+      e.preventDefault();
+      var $this = $(this);
+      $this.unbind('click');
+      $('.js-hidethis').hide();
+      $('.flow-loading').removeClass('hidden');
+
+      setTimeout(function(){
+        $this.click();
+      }, 1000);
+    });
+
+    var randTime = Math.floor(Math.random() * 500) + 500;
+
     $('.js-uploadIcon').click(function(e) {
       $('.js-uploadField').click();
-    })
+    });
+
+    $('.annie-target-check').hide();
+
+    $('.js-uploadField').on('change', function(e) {
+      $('.js-uploadIcon').hide();
+      $('.annie-target-check').show();
+    });
 
     $(".js-gunField").autocomplete({
       source: function(request, response) {

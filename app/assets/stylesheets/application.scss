@@ -139,5 +139,20 @@ input {
   margin: 0 5px;
 }
 
+.annie-target-check {
+  font-size: 40px;
+  display: none;
+}
 
+.flow-loading {
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.hidden {
+  display: none;
+}
 

@@ -18,6 +18,10 @@ class TargetsController < ApplicationController
     @target.gun_range = @range
 
     @target.save!
+
+    root_dir = Rails.root.to_s
+
+    Kernel.system("python #{root_dir}/image_processing/process.py #{@target.id}")
     redirect_to user_target_path(current_user, @target)
   end
 

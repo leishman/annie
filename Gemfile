@@ -35,6 +35,7 @@ gem 'gravatar_image_tag'
 
 gem 'carrierwave', '~> 1.0'
 
+gem "mini_magick"
 
 gem 'jquery-rails'
 # Use Redis adapter to run Action Cable in production

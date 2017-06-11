@@ -25,11 +25,20 @@ ActiveRecord::Schema.define(version: 20170509180751) do
     t.index ["name"], name: "index_guns_on_name", unique: true
   end
 
+  create_table "shots", force: :cascade do |t|
+    t.integer "target_id"
+    t.integer "x_pos"
+    t.integer "y_pos"
+    t.index ["target_id"], name: "index_shots_on_target_id"
+  end
+
   create_table "targets", force: :cascade do |t|
     t.integer "user_id"
     t.string "image"
     t.integer "gun_id"
     t.integer "gun_range_id"
+    t.integer "width"
+    t.integer "height"
     t.index ["gun_id"], name: "index_targets_on_gun_id"
     t.index ["gun_range_id"], name: "index_targets_on_gun_range_id"
     t.index ["user_id"], name: "index_targets_on_user_id"

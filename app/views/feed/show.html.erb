@@ -1,13 +1,15 @@
 <div class="annie-nf">
   <% @targets.each do |target| %>
     <div class="annie-nf-item">
-      <%= image_tag target.image, class: 'img-fluid' %>
+      <%= image_tag target.processed_image_path, class: 'img-fluid' %>
       <div class="annie-nf-lower row">
         <%= gravatar_image_tag(target.user.email, class: "col-xs-2") %>
         <div class="col-xs-10 annie-nf-lower-content">
+          <a href="<%= user_target_path(current_user, target) %>">
           <b class="annie-nf-user-name"><%= target.user.name %></b>
           <p class="annie-nf-range-name"><%= target.gun_range.name %></p>
           <p class="annie-nf-gun-name"><%= target.gun.name %></p>
+          </a>
         </div>
       </div>
     </div>

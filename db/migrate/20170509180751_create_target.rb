@@ -5,6 +5,8 @@ class CreateTarget < ActiveRecord::Migration[5.1]
       t.string     :image
       t.belongs_to :gun
       t.belongs_to :gun_range
+      t.integer    :width
+      t.integer    :height
     end
 
     create_table :guns do |t|
@@ -20,5 +22,10 @@ class CreateTarget < ActiveRecord::Migration[5.1]
     end
     add_index :gun_ranges, :name, unique: true
 
+    create_table :shots do |t|
+      t.belongs_to :target
+      t.integer :x_pos
+      t.integer :y_pos
+    end
   end
 end

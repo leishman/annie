@@ -14,6 +14,10 @@
 
   <body>
     <div class="container annie_<%= controller.controller_name + '_' + controller.action_name%>">
+      <div class='flow-loading hidden'>
+        <%= image_tag "loading_animation.svg", style: 'margin: 0 auto'%>
+        <p><b>Processing Image...</b></p>
+      </div>
       <%= yield %>
       <% if user_signed_in? %>
         <nav class="navbar fixed-bottom navbar-light bg-faded annie-navbar">

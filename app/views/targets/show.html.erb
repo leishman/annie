@@ -1,3 +1,23 @@
-<%= image_tag(@target.image, class: 'img-fluid') %>
+<%= image_tag(@target.processed_image_path, class: 'img-fluid') %>
+
+<h2>Shot Details</h2>
+
 <p><%= @target.gun.name %></p>
 <p><%= @target.gun_range.name %></p>
+<p> Shot Count: <%= @target.shots.count %> </p>
+
+<table class="table">
+  <thead>
+    <th>Shot #</th>
+    <th>%H</th>
+    <th>%V</th>
+  </thead>
+
+  <% @target.shots.each_with_index do |shot, i| %>
+    <tr>
+      <td><%= i %></td>
+      <td><%= (((shot.x_pos - (@target.width.to_f / 2)) / @target.width) * 100).round(2) %>% </td>
+      <td><%= (((shot.y_pos - (@target.height.to_f / 2)) / @target.height) * 100).round(2) %>% </td>
+    </tr>
+  <% end %>
+</table>

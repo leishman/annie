@@ -1,6 +1,6 @@
 class Api::AlmondController < ApplicationController
 
   def question_1
-    params[]
+    # params[]
   end
 end
